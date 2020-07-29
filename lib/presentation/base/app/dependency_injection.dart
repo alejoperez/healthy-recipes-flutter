@@ -1,9 +1,9 @@
 import 'package:get_it/get_it.dart';
-import 'package:recipes/data/repositories/categories/categories_data_source_contracts.dart';
-import 'package:recipes/data/repositories/categories/categories_remote_data_source.dart';
-import 'package:recipes/data/repositories/categories/categories_repository.dart';
-import 'package:recipes/data/webservices/categories_api.dart';
-import 'package:recipes/domain/use_cases/categories/categories_usecase.dart';
+import 'package:recipes/data/repositories/recipe_book/recipe_book_data_source_contracts.dart';
+import 'package:recipes/data/repositories/recipe_book/recipe_book_remote_data_source.dart';
+import 'package:recipes/data/repositories/recipe_book/recipe_book_repository.dart';
+import 'package:recipes/data/webservices/recipe_book_api.dart';
+import 'package:recipes/domain/use_cases/recipe_book/recipe_book_usecase.dart';
 
 GetIt locator = GetIt.instance;
 
@@ -15,18 +15,18 @@ class DependencyInjection {
   }
 
   static void _initWebServices() {
-    locator.registerLazySingleton(() => CategoriesApi());
+    locator.registerLazySingleton(() => RecipeBookApi());
   }
 
   static void _initRepositories() {
-    locator.registerLazySingleton<ICategoriesRepository>(
-        () => CategoriesRepository());
-    locator.registerLazySingleton<ICategoriesRemoteDataSource>(
-        () => CategoriesRemoteDataSource());
+    locator.registerLazySingleton<IRecipeBookRepository>(
+        () => RecipeBookRepository());
+    locator.registerLazySingleton<IRecipeBookRemoteDataSource>(
+        () => RecipeBookRemoteDataSource());
   }
 
   static void _initUseCases() {
     locator
-        .registerLazySingleton<ICategoriesUseCase>(() => CategoriesUseCase());
+        .registerLazySingleton<IRecipeBookUseCase>(() => RecipeBookUseCase());
   }
 }
