@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
-import 'package:recipes/presentation/recipes/recipe_list_screen.dart';
+import 'package:recipes/presentation/recipes/list/recipe_list_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class CategoryItemWidget extends StatelessWidget {
@@ -48,7 +48,7 @@ class CategoryItemWidget extends StatelessWidget {
             category.name,
             style: Theme.of(context)
                 .textTheme
-                .headline4
+                .headline5
                 .apply(color: Colors.white),
           ),
         ),

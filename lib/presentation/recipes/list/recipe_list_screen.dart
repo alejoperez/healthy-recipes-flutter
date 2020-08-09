@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
 import 'package:recipes/presentation/base/widgets/response_widget.dart';
-import 'package:recipes/presentation/recipes/recipe_item_widget.dart';
+import 'package:recipes/presentation/recipes/list/recipe_item_widget.dart';
 
 class RecipeListScreen extends StatelessWidget {
   static const ROUTE_NAME = "/recipes-by-category";
 
-  BookCategory getCategory(BuildContext ctx) =>
+  BookCategory _getCategory(BuildContext ctx) =>
       ModalRoute.of(ctx).settings.arguments;
 
   @override
   Widget build(BuildContext context) => ResponsiveWidget(
-      smallScreen: RecipeListSmallScreen(category: getCategory(context)),
-      largeScreen: RecipeListLargeScreen(category: getCategory(context)));
+      smallScreen: _RecipeListSmallScreen(category: _getCategory(context)),
+      largeScreen: _RecipeListLargeScreen(category: _getCategory(context)));
 }
 
-class RecipeListLargeScreen extends StatelessWidget {
+class _RecipeListLargeScreen extends StatelessWidget {
   final BookCategory category;
-  const RecipeListLargeScreen({Key key, @required this.category})
+  const _RecipeListLargeScreen({Key key, @required this.category})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class RecipeListLargeScreen extends StatelessWidget {
                   category.name,
                   style: Theme.of(context)
                       .textTheme
-                      .headline1
+                      .headline2
                       .apply(color: Colors.white),
                 )),
               )
@@ -60,9 +60,9 @@ class RecipeListLargeScreen extends StatelessWidget {
   }
 }
 
-class RecipeListSmallScreen extends StatelessWidget {
+class _RecipeListSmallScreen extends StatelessWidget {
   final BookCategory category;
-  const RecipeListSmallScreen({Key key, @required this.category})
+  const _RecipeListSmallScreen({Key key, @required this.category})
       : super(key: key);
 
   @override

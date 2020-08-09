@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:recipes/presentation/base/app/strings.dart';
 import 'package:recipes/presentation/base/providers/recipe_book_provider.dart';
 import 'package:recipes/presentation/categories/categories_screen.dart';
-import 'package:recipes/presentation/recipes/recipe_list_screen.dart';
+import 'package:recipes/presentation/recipes/detail/recipe_detail_screen.dart';
+import 'package:recipes/presentation/recipes/list/recipe_list_screen.dart';
 
 class RecipesApp extends StatelessWidget {
   @override
@@ -17,10 +18,12 @@ class RecipesApp extends StatelessWidget {
             primarySwatch: Colors.lightGreen,
             accentColor: Colors.orangeAccent,
             visualDensity: VisualDensity.adaptivePlatformDensity,
-            fontFamily: 'BubblegumSans'),
+            dividerColor: Colors.lightGreenAccent
+            ),
         home: CategoriesScreen(),
         routes: {
           RecipeListScreen.ROUTE_NAME: (_) => RecipeListScreen(),
+          RecipeDetailScreen.ROUTE_NAME: (_) => RecipeDetailScreen(),
         },
       ),
     );

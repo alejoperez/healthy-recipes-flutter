@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/recipe.dart';
+import 'package:recipes/presentation/recipes/detail/recipe_detail_screen.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class RecipeItemWidget extends StatelessWidget {
@@ -10,7 +11,9 @@ class RecipeItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        _showRecipeDetail(context);
+      },
       child: Container(
         width: 400,
         child: Card(
@@ -25,6 +28,9 @@ class RecipeItemWidget extends StatelessWidget {
       ),
     );
   }
+
+  void _showRecipeDetail(BuildContext context) => Navigator.of(context)
+      .pushNamed(RecipeDetailScreen.ROUTE_NAME, arguments: recipe);
 
   Widget _buildImageWidget() => FadeInImage.memoryNetwork(
         placeholder: kTransparentImage,
@@ -70,7 +76,7 @@ class RecipeItemWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildDescriptionItem(context, recipe.duration, Icons.schedule),
-              _buildDescriptionItem(context, recipe.difficulty, Icons.work)
+              _buildDescriptionItem(context, recipe.servings, Icons.people)
             ],
           ),
         ),
@@ -86,7 +92,7 @@ class RecipeItemWidget extends StatelessWidget {
             title,
             style: Theme.of(context)
                 .textTheme
-                .headline5
+                .headline6
                 .apply(color: Colors.black),
           )
         ],

@@ -18,17 +18,18 @@ class CategoriesScreen extends StatelessWidget {
               return Center(child: CircularProgressIndicator());
             default:
               return ResponsiveWidget(
-                  smallScreen: CategoriesSmallScreen(categories: snapshot.data),
+                  smallScreen:
+                      _CategoriesSmallScreen(categories: snapshot.data),
                   largeScreen:
-                      CategoriesLargeScreen(categories: snapshot.data));
+                      _CategoriesLargeScreen(categories: snapshot.data));
           }
         });
   }
 }
 
-class CategoriesLargeScreen extends StatelessWidget {
+class _CategoriesLargeScreen extends StatelessWidget {
   final List<BookCategory> categories;
-  const CategoriesLargeScreen({Key key, @required this.categories})
+  const _CategoriesLargeScreen({Key key, @required this.categories})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class CategoriesLargeScreen extends StatelessWidget {
                   Strings.appTitle,
                   style: Theme.of(context)
                       .textTheme
-                      .headline1
+                      .headline2
                       .apply(color: Colors.white),
                 )),
               )
@@ -63,7 +64,7 @@ class CategoriesLargeScreen extends StatelessWidget {
                 child: Text(Strings.categoriesTitle,
                     style: Theme.of(context)
                         .textTheme
-                        .headline2
+                        .headline3
                         .apply(color: Colors.black)),
               ),
             ),
@@ -81,9 +82,9 @@ class CategoriesLargeScreen extends StatelessWidget {
   }
 }
 
-class CategoriesSmallScreen extends StatelessWidget {
+class _CategoriesSmallScreen extends StatelessWidget {
   final List<BookCategory> categories;
-  const CategoriesSmallScreen({Key key, @required this.categories})
+  const _CategoriesSmallScreen({Key key, @required this.categories})
       : super(key: key);
 
   @override
