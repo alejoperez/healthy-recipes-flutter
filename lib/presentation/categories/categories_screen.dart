@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
+import 'package:recipes/presentation/base/widgets/large_header_widget.dart';
 import 'package:recipes/presentation/base/widgets/response_widget.dart';
 import 'package:recipes/presentation/base/providers/recipe_book_provider.dart';
 import 'package:recipes/presentation/categories/category_item_widget.dart';
@@ -37,27 +38,10 @@ class _CategoriesLargeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Stack(children: [
-              Image.asset(
-                'images/onboarding_image.jpg',
-                height: 400,
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-              Container(
-                color: Colors.black54,
-                height: 400,
-                width: double.infinity,
-                child: Center(
-                    child: Text(
-                  Strings.appTitle,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline2
-                      .apply(color: Colors.white),
-                )),
-              )
-            ]),
+            LargeHeaderWidget(
+                text: Strings.appTitle,
+                type: HeaderImageType.ASSET,
+                imageSrc: 'images/onboarding_image.jpg'),
             Padding(
               padding: const EdgeInsets.all(20),
               child: Center(
@@ -65,7 +49,7 @@ class _CategoriesLargeScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headline3
-                        .apply(color: Colors.black)),
+                        .apply(color: Colors.black87)),
               ),
             ),
             Center(

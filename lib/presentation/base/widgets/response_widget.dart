@@ -4,7 +4,8 @@ class ResponsiveWidget extends StatelessWidget {
   final Widget smallScreen;
   final Widget largeScreen;
 
-  const ResponsiveWidget({Key key, this.smallScreen, this.largeScreen})
+  const ResponsiveWidget(
+      {Key key, @required this.smallScreen, @required this.largeScreen})
       : super(key: key);
 
   @override

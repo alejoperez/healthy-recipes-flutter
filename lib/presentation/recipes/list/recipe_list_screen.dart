@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
+import 'package:recipes/presentation/base/widgets/large_header_widget.dart';
 import 'package:recipes/presentation/base/widgets/response_widget.dart';
 import 'package:recipes/presentation/recipes/list/recipe_item_widget.dart';
 
@@ -20,44 +21,31 @@ class _RecipeListLargeScreen extends StatelessWidget {
   const _RecipeListLargeScreen({Key key, @required this.category})
       : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(children: [
-              Image.network(
-                category.imageUrl,
-                height: 400,
-                width: double.infinity,
-                fit: BoxFit.cover,
+  Widget build(BuildContext context) => Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              LargeHeaderWidget(
+                  text: category.name,
+                  type: HeaderImageType.NETWORK,
+                  imageSrc: category.imageUrl),
+              SizedBox(
+                height: 10,
               ),
-              Container(
-                color: Colors.black54,
-                height: 400,
-                width: double.infinity,
-                child: Center(
-                    child: Text(
-                  category.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline2
-                      .apply(color: Colors.white),
-                )),
-              )
-            ]),
-            Center(
-              child: Wrap(
-                children: category.recipes
-                    .map((r) => RecipeItemWidget(recipe: r))
-                    .toList(),
+              Center(
+                child: Wrap(
+                  children: category.recipes
+                      .map((r) => RecipeItemWidget(
+                            recipe: r,
+                            width: 400,
+                          ))
+                      .toList(),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
 }
 
 class _RecipeListSmallScreen extends StatelessWidget {
@@ -66,14 +54,12 @@ class _RecipeListSmallScreen extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(category.name)),
-      body: ListView.builder(
-        itemBuilder: (_, index) =>
-            RecipeItemWidget(recipe: category.recipes[index]),
-        itemCount: category.recipes.length,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: Text(category.name)),
+        body: ListView.builder(
+          itemBuilder: (_, index) =>
+              RecipeItemWidget(recipe: category.recipes[index], width: 400),
+          itemCount: category.recipes.length,
+        ),
+      );
 }

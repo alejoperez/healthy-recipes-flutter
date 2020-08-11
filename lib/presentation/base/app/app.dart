@@ -15,11 +15,10 @@ class RecipesApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Strings.appTitle,
         theme: ThemeData(
-            primarySwatch: Colors.lightGreen,
+            primarySwatch: Colors.teal,
             accentColor: Colors.orangeAccent,
             visualDensity: VisualDensity.adaptivePlatformDensity,
-            dividerColor: Colors.lightGreenAccent
-            ),
+            dividerColor: Colors.black12),
         home: CategoriesScreen(),
         routes: {
           RecipeListScreen.ROUTE_NAME: (_) => RecipeListScreen(),

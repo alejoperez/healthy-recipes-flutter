@@ -5,7 +5,7 @@ import 'package:recipes/presentation/base/app/strings.dart';
 class RecipeStepsWidget extends StatelessWidget {
   final Recipe recipe;
 
-  const RecipeStepsWidget({Key key, this.recipe}) : super(key: key);
+  const RecipeStepsWidget({Key key, @required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Padding(
@@ -13,11 +13,23 @@ class RecipeStepsWidget extends StatelessWidget {
         child: Column(children: [
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
-            child: Text(Strings.stepsTitle,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .apply(color: Theme.of(context).primaryColor)),
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  border: Border(
+                      bottom:
+                          BorderSide(color: Theme.of(context).dividerColor))),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Center(
+                  child: Text(Strings.stepsTitle,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6
+                          .apply(color: Theme.of(context).primaryColor)),
+                ),
+              ),
+            ),
           ),
           Wrap(
             children: recipe.steps
@@ -26,20 +38,15 @@ class RecipeStepsWidget extends StatelessWidget {
                 .map((step) => Container(
                       decoration: BoxDecoration(
                           border: Border(
-                              bottom:
-                                  BorderSide(color: Colors.lightGreenAccent))),
+                              bottom: BorderSide(
+                                  color: Theme.of(context).dividerColor))),
                       child: ListTile(
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 30),
                         leading: CircleAvatar(
                           backgroundColor: Theme.of(context).primaryColorLight,
                           child: Text('${step.key + 1}'),
                         ),
                         title: Text(step.value,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .apply(color: Colors.black)),
+                            style: Theme.of(context).textTheme.bodyText1),
                       ),
                     ))
                 .toList(),

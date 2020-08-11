@@ -5,7 +5,8 @@ import 'package:recipes/presentation/base/app/strings.dart';
 class RecipeIngredientsWidget extends StatelessWidget {
   final Recipe recipe;
 
-  const RecipeIngredientsWidget({Key key, this.recipe}) : super(key: key);
+  const RecipeIngredientsWidget({Key key, @required this.recipe})
+      : super(key: key);
   @override
   Widget build(BuildContext context) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -15,16 +16,13 @@ class RecipeIngredientsWidget extends StatelessWidget {
                   label: Text(Strings.ingredientsTitle,
                       style: Theme.of(context)
                           .textTheme
-                          .headline5
+                          .headline6
                           .apply(color: Theme.of(context).primaryColor)))
             ],
             rows: recipe.ingredients
                 .map((ingredient) => DataRow(cells: [
                       DataCell(Text(ingredient,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyText1
-                              .apply(color: Colors.black)))
+                          style: Theme.of(context).textTheme.bodyText1))
                     ]))
                 .toList()),
       );
