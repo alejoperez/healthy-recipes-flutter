@@ -15,7 +15,7 @@ class RecipesApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Strings.appTitle,
         theme: ThemeData(
-            scaffoldBackgroundColor: Colors.teal.withAlpha(50),
+            canvasColor: Color.fromRGBO(224, 242, 241, 1),
             fontFamily: 'QarmicSans',
             primarySwatch: Colors.teal,
             accentColor: Colors.teal,

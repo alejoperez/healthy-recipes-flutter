@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
 import 'package:recipes/presentation/base/widgets/large_header_widget.dart';
+import 'package:recipes/presentation/base/widgets/loading_screen.dart';
 import 'package:recipes/presentation/base/widgets/response_widget.dart';
 import 'package:recipes/presentation/base/providers/recipe_book_provider.dart';
 import 'package:recipes/presentation/categories/category_item_widget.dart';
@@ -16,7 +17,9 @@ class CategoriesScreen extends StatelessWidget {
         builder: (_, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
-              return Center(child: CircularProgressIndicator());
+              return LoadingScreen(
+                appBarTitle: Strings.appTitle,
+              );
             default:
               return ResponsiveWidget(
                   smallScreen:
