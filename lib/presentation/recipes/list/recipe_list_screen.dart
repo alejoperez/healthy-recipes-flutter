@@ -30,7 +30,7 @@ class _RecipeListLargeScreen extends StatelessWidget {
                   type: HeaderImageType.NETWORK,
                   imageSrc: category.imageUrl),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Center(
                 child: Wrap(

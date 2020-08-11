@@ -15,8 +15,10 @@ class RecipesApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Strings.appTitle,
         theme: ThemeData(
+            scaffoldBackgroundColor: Colors.teal.withAlpha(50),
+            fontFamily: 'QarmicSans',
             primarySwatch: Colors.teal,
-            accentColor: Colors.orangeAccent,
+            accentColor: Colors.teal,
             visualDensity: VisualDensity.adaptivePlatformDensity,
             dividerColor: Colors.black12),
         home: CategoriesScreen(),

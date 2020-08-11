@@ -66,7 +66,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: BubblegumSans
+    - family: QarmicSans
       fonts:
-        - asset: assets/fonts/BubblegumSans-Regular.ttf
+        - asset: assets/fonts/Qarmic_Sans.ttf
           style: normal

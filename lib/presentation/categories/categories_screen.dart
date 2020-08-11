@@ -42,15 +42,8 @@ class _CategoriesLargeScreen extends StatelessWidget {
                 text: Strings.appTitle,
                 type: HeaderImageType.ASSET,
                 imageSrc: 'images/onboarding_image.jpg'),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Center(
-                child: Text(Strings.categoriesTitle,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3
-                        .apply(color: Colors.black87)),
-              ),
+            SizedBox(
+              height: 20,
             ),
             Center(
               child: Wrap(
