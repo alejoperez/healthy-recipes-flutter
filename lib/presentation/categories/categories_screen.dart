@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/domain/model/book_category.dart';
+import 'package:recipes/presentation/base/app/images.dart';
 import 'package:recipes/presentation/base/widgets/large_header_widget.dart';
 import 'package:recipes/presentation/base/widgets/loading_screen.dart';
 import 'package:recipes/presentation/base/widgets/response_widget.dart';
@@ -9,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:recipes/presentation/base/app/strings.dart';
 
 class CategoriesScreen extends StatelessWidget {
+  static const ROUTE_NAME = '/';
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -44,7 +46,7 @@ class _CategoriesLargeScreen extends StatelessWidget {
             LargeHeaderWidget(
                 text: Strings.appTitle,
                 type: HeaderImageType.ASSET,
-                imageSrc: 'images/onboarding_image.jpg'),
+                imageSrc: Images.onboarding),
             SizedBox(
               height: 20,
             ),

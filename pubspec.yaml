@@ -43,7 +43,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: "assets/icon/icon.png"  
+  image_path: "resources/icon/icon.png"  
 
 flutter_launcher_name:
   name: "Recetas Saludables"  
@@ -61,8 +61,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/onboarding_image.jpg
-  #   - images/a_dot_ham.jpeg
+    - resources/images/onboarding_image.jpg
+    - resources/images/not_found_image.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -78,5 +78,5 @@ flutter:
   fonts:
     - family: QarmicSans
       fonts:
-        - asset: assets/fonts/Qarmic_Sans.ttf
+        - asset: resources/fonts/Qarmic_Sans.ttf
           style: normal
